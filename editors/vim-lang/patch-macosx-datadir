@@ -1,0 +1,13 @@
+Avoid installing data files to a wrong place on Mac OS X.
+
+--- src/auto/configure.orig	2008-07-24 12:40:36.000000000 +0000
++++ src/auto/configure
+@@ -8214,7 +8214,7 @@
+     prefix=/Applications
+   fi
+ 
+-    datadir='${prefix}/Vim.app/Contents/Resources'
++    #datadir='${prefix}/Vim.app/Contents/Resources'
+ 
+     SKIP_GTK=YES;
+   SKIP_GTK2=YES;
