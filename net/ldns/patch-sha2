@@ -1,0 +1,31 @@
+Ignore --enable-sha2 if OpenSSL doesn't support SHA256.
+This patch is a quick fix until pkgsrc's Makefile is improved.
+
+--- configure.orig	2008-11-07 15:28:57.000000000 +0000
++++ configure
+@@ -6687,19 +6687,17 @@
+ 
+   LIBS="-lcrypto $LIBS"
+ 
++  cat >>confdefs.h <<_ACEOF
++#define USE_SHA2 /**/
++_ACEOF
++
+ else
+ 
+-        	        { { $as_echo "$as_me:$LINENO: error: SHA2 enabled, but no SHA2 functions found in OpenSSL" >&5
+-$as_echo "$as_me: error: SHA2 enabled, but no SHA2 functions found in OpenSSL" >&2;}
+-   { (exit 1); exit 1; }; }
++        	        { $as_echo "$as_me:$LINENO: WARNING: SHA2 enabled, but no SHA2 functions found in OpenSSL" >&5
++$as_echo "$as_me: WARNING: SHA2 enabled, but no SHA2 functions found in OpenSSL" >&2;}
+ 
+ fi
+ 
+-
+-cat >>confdefs.h <<_ACEOF
+-#define USE_SHA2 /**/
+-_ACEOF
+-
+                 ;;
+         no|*)
+                 ;;
