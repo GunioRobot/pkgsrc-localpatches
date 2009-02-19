@@ -1,0 +1,22 @@
+Use /usr/xpg4/bin/id on Solaris.
+
+--- wrapper.sh.orig	2005-01-25 13:00:46.000000000 +0000
++++ wrapper.sh
+@@ -39,7 +39,16 @@
+     exit 1
+ fi
+ 
+-if [ $(id -un) = __ROOT_USER__ ]; then
++case $(uname -s) in
++SunOS)
++    idprog="/usr/xpg4/bin/id"
++    ;;
++*)
++    idprog="id"
++    ;;
++esac
++
++if [ $($idprog -un) = __ROOT_USER__ ]; then
+     userfile=
+ else
+     userfile=~/.pkg_alternatives/${wrapper}
