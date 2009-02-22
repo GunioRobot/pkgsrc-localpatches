@@ -1,0 +1,12 @@
+Fix a compilation problem on Solaris.
+
+--- Modules/_ctypes/libffi/src/x86/sysv.S.orig	2006-10-22 10:55:25.000000000 +0000
++++ Modules/_ctypes/libffi/src/x86/sysv.S
+@@ -377,6 +377,6 @@
+ 
+ #endif /* ifndef __x86_64__ */
+ 
+-#ifdef __ELF__
++#if defined(__ELF__) && !defined(__sun__)
+ .section .note.GNU-stack,"",%progbits
+ #endif
