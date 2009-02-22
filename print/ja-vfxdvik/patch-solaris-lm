@@ -1,0 +1,19 @@
+Add `-lm' to LDFLAGS on Solaris.
+This patch is a quick fix until pkgsrc's Makefile is improved.
+
+--- texk/xdvik/configure.orig	2003-02-03 14:29:21.000000000 +0000
++++ texk/xdvik/configure
+@@ -4821,6 +4821,13 @@
+ # For other options
+ 
+ 
++case "`uname -s`" in
++SunOS)
++  LDFLAGS="$LDFLAGS -lm"
++  ;;
++esac
++
++
+ trap '' 1 2 15
+ cat > confcache <<\EOF
+ # This file is a shell script that caches the results of configure
