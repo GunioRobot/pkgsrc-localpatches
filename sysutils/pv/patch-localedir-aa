@@ -1,0 +1,10 @@
+Fix for PKGLOCALEDIR support.
+This patch is a quick fix until pkgsrc's Makefile is improved.
+
+--- autoconf/Makefile.in.orig	2003-08-05 22:46:40.000000000 +0000
++++ autoconf/Makefile.in
+@@ -12,3 +12,4 @@
+ #
+ #
+ 
++localedir =
