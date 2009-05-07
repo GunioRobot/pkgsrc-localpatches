@@ -1,0 +1,13 @@
+Fix a compilation problem on Solaris.
+
+--- configure.orig	2009-05-07 15:54:40.444107996 +0000
++++ configure
+@@ -21008,7 +21008,7 @@ case $host_os in
+       # binaries aren't flagged as only able to run on MMX+SSE capable CPUs
+       # since they check at runtime before using those instructions
+       if test "$AMD64_ABI" = "no" ; then
+-         HWCAP_LDFLAGS='-Wl,-M,$(srcdir)/solaris-hwcap.mapfile'
++         HWCAP_LDFLAGS='-Wl,-M,$(srcdir)/../../pixman'
+       fi
+       if test "x$MMX_LDFLAGS" = "x" ; then
+          MMX_LDFLAGS="$HWCAP_LDFLAGS"
