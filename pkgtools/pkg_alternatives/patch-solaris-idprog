@@ -5,7 +5,7 @@ Use /usr/xpg4/bin/id on Solaris.
 @@ -39,7 +39,16 @@
      exit 1
  fi
- 
+
 -if [ $(id -un) = __ROOT_USER__ ]; then
 +case $(uname -s) in
 +SunOS)

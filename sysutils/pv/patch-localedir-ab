@@ -4,11 +4,11 @@ This patch is a quick fix until pkgsrc's Makefile is improved.
 --- autoconf/make/vars.mk.orig	2004-02-11 23:55:07.000000000 +0000
 +++ autoconf/make/vars.mk
 @@ -15,7 +15,7 @@
- 
+
  VPATH = $(srcdir)
- 
+
 -localedir = $(datadir)/locale
 +#localedir = $(datadir)/locale
  gnulocaledir = $(prefix)/share/locale
- 
+
  CATALOGS = @CATALOGS@

@@ -5,8 +5,8 @@ This patch is a quick fix until pkgsrc's Makefile is improved.
 +++ texk/xdvik/configure
 @@ -4821,6 +4821,13 @@
  # For other options
- 
- 
+
+
 +case "`uname -s`" in
 +SunOS)
 +  LDFLAGS="$LDFLAGS -lm"

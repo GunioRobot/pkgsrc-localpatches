@@ -6,5 +6,5 @@ This patch is a quick fix until pkgsrc's Makefile is improved.
 @@ -12,3 +12,4 @@
  #
  #
- 
+
 +localedir =
